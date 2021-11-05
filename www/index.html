@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="css/app.css">
+    <title>Project Cordova</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navTop" class="col-12 mt-1">
+            <ul class="row list-unstyled">
+                <li class=" col-3 d-flex flex-column justify-content-center">
+                    <a class="hide-on-login" id="top-navigation-left" href="#!">
+                        <img src="assets/logo.svg" alt="logo" class="p-2">
+                    </a>
+                </li>
+                <li class="col-6 d-flex flex-column justify-content-center">
+                    <h1><a href="#!" id="main-selector">Agenda</a></h1>
+                </li>
+                <li id="top-navigation-right" class="col-3 d-flex flex-column justify-content-center">
+                    <a class="hide-on-login" href="#!"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Agenda -->
+        <div data-tab="agenda" class="container agenda-planning-tab">
+            <div id="deadline-tab" class="d-flex flex-column align-items-center">
+            </div>
+        </div>
+
+        <!-- Group filter -->
+        <div data-tab="filter" id="groups-tab">
+        </div>
+
+        <!-- About -->
+        <div data-tab="about" id="about-tab">
+            <section>
+                <h2>About me</h2>
+                <div class="row mb-2 mt-4">
+                    <div class="col-12 mb-2 text-center"><img src="assets/profilePic.png" alt="profile-picture"></div>
+                    <div class="col-12 text-center " id="name">Lennert Soffers</div>
+                </div>
+                <p class="text-justify">Hello there, my name is Lennert. I am the creator of this agenda app. If
+                    you have any
+                    suggestions or remarks, please contact me on one of the following platforms.
+                </p>
+                <div class="row text-center">
+                    <p class="col-4"><a href="mailto:r0833959@student.thomasmore.be"><i
+                                class="fas fa-envelope fa-2x"></i></a>
+                    </p>
+                    <p class="col-4 pt-1"><a href="tel:0495487074"><i id="smaller-icon"
+                                class="fas fa-comment-alt fa-2x"></i></a></p>
+                    <p class="col-4"><a href="sms:0495487074"><i class="fas fa-phone-square-alt fa-2x"></i></a></p>
+                </div>
+
+            </section>
+            <section class="mt-4">
+                <h2>About Agenda</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio pariatur nobis iure praesentium
+                    voluptates ut, sapiente quisquam placeat, quo nulla doloribus sunt et sit consequatur facere
+                    voluptatem vero quidem. Accusamus.</p>
+            </section>
+            <section id="socials">
+                <a href="https://github.com/lennertsoffers">
+                    <i class="fab fa-github-square"></i>
+                </a>
+                <a href="https://linkedin.com/in/lennert-soffers">
+                    <i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/lennertsoffers">
+                    <i class="fab fa-twitter-square"></i></a>
+            </section>
+        </div>
+
+        <!-- New deadline -->
+        <div data-tab="new deadline" id="new-deadline-tab">
+            <div>
+                <label for="deadline-title">Title</label>
+                <div id="specify-title" class="error mb-2">Specify a title</div>
+                <input type="text" name="deadline-title" id="deadline-title" class="form-control">
+            </div>
+            <div>
+                <label for="deadline-subject">Description</label>
+                <div id="specify-description" class="error mb-2">Specify a description</div>
+                <input type="text" name="deadline-subject" id="deadline-subject" class="form-control">
+            </div>
+            <div>
+                <label for="deadline-date">Date</label>
+                <div id="specify-date" class="error mb-2">Specify a date</div>
+                <input type="date" name="deadline-date" id="deadline-date" class="form-control">
+            </div>
+            <div>
+                <label for="deadline-group">Group</label>
+                <select name="deadline-group" id="deadline-group" class="form-control">
+                </select>
+            </div>
+            <div class="custom-control custom-checkbox mr-sm-2 mt-5 mb-0">
+                <input type="checkbox" class="custom-control-input" id="showDeadlineLocationOption">
+                <label class="custom-control-label" for="showDeadlineLocationOption">Enter Location</label>
+            </div>
+            <div class="mt-2 mb-5">
+                <div class="mt-0" id="newDeadlineMap"></div>
+            </div>
+            <div class="pb-4">
+                <div>Preview</div>
+                <div class="box mt-2">
+                    <div class="group"></div>
+                    <div class="content px-2 d-flex flex-column justify-content-center">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div>
+                                <div id="preview-title" class="title"></div>
+                                <div id="preview-subject" class="subject"></div>
+                            </div>
+                            <div class="trash d-flex flex-column justify-content-center"><i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <button class="create-deadline-button create group-button">Create</button>
+                <button class="cancel-deadline-button cancel group-button">Cancel</button>
+            </div>
+        </div>
+
+        <!-- New group -->
+        <div data-tab="new group" id="new-group-tab">
+            <div>
+                <div>
+                    <label for="group-name" class="form-label">Group name</label>
+                    <div id="specify-name" class="error mb-2">Specify a name</div>
+                    <input type="text" name="group-name" id="group-name" placeholder="Enter group name"
+                        class="form-control">
+                </div>
+                <div class="mt-4">
+                    <label for="group-colour">Color</label>
+                    <div id="specify-colour" class="error mb-2">Specify a color</div>
+                    <div class="row justify-content-center">
+                        <div id="colours" class="col-12">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <p class="mt-3">or</p>
+                    </div>
+                    <div>
+                        <div id="not-a-colour" class="error mb-2">This is not a color</div>
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" name="group-colour-r" id="group-colour-r" placeholder="r"
+                                    class="form-control">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" name="group-colour-g" id="group-colour-g" placeholder="g"
+                                    class="form-control">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" name="group-colour-b" id="group-colour-b" placeholder="b"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <button class="create-button create group-button">Create</button>
+                    <button type="reset" class="cancel-button cancel group-button">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div data-tab="login" id="login-tab">
+            <div>
+                <label for="login-username">Username</label>
+                <div class="error mb-2" id="specify-username">Specify username</div>
+                <input type="text" name="login-username" id="login-username" class="form-control">
+            </div>
+            <div class="mt-4">
+                <button id="submitUsername" class="create-button group-button create">Continue</button>
+            </div>
+        </div>
+    </main>
+    <footer class="hide-on-login row">
+        <nav id="navBottom" class="col-12">
+            <ul class="row list-unstyled">
+                <li class="navigation-filter col-3 d-flex flex-column justify-content-center">
+                    <a href="#!"><i class="fas fa-filter fa-2x"></i></a>
+                </li>
+                <li class="navigation-about col-3 d-flex flex-column justify-content-center">
+                    <a href="#!"><i class="fas fa-user fa-2x"></i></a>
+                </li>
+                <li class="navigation-new-group col-3 d-flex flex-column justify-content-center">
+                    <a href="#!"><i class="fas fa-folder-plus fa-2x"></i></a>
+                </li>
+                <li class="navigation-new-deadline col-3 d-flex flex-column justify-content-center">
+                    <a href="#!"><i class="fas fa-calendar-plus fa-2x"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="js/jquery.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/newGroup.js"></script>
+    <script src="js/newDeadline.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/fillData.js"></script>
+    <script src="js/removeItems.js"></script>
+    <script src="js/loadMaps.js"></script>
+    <script defer src="js/app.js"></script>
+</body>
+
+</html>
