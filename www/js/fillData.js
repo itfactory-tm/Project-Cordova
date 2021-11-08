@@ -5,9 +5,11 @@ const FillData = (function () {
             localStorage.getItem("userFilterMapping") !== null &&
             localStorage.getItem("userFilterMapping") !== undefined
         ) {
-            filterList = JSON.parse(localStorage.getItem("userFilterMapping"))[
-                localStorage.getItem("loggedInUser")
-            ];
+            setFilterList(
+                JSON.parse(localStorage.getItem("userFilterMapping"))[
+                    localStorage.getItem("loggedInUser")
+                ]
+            );
         }
         _clearNodes();
         _fillLogin();
@@ -96,13 +98,15 @@ const FillData = (function () {
                 ) {
                     groupBox.css("color", "#aaa");
                 }
-                if (filterList.includes(groupBox.find("i").data("id"))) {
-                    let backgroundColour = groupBox
-                        .css("background-color")
-                        .replace("rgb(", "rgba(")
-                        .replace(")", `, 0.6)`);
-                    groupBox.data("deSelect", "true");
-                    groupBox.css("background-color", backgroundColour);
+                if (filterList !== undefined) {
+                    if (filterList.includes(groupBox.find("i").data("id"))) {
+                        let backgroundColour = groupBox
+                            .css("background-color")
+                            .replace("rgb(", "rgba(")
+                            .replace(")", `, 0.6)`);
+                        groupBox.data("deSelect", "true");
+                        groupBox.css("background-color", backgroundColour);
+                    }
                 }
             });
             $(".remove-group i").on("click", (e) => {
@@ -135,6 +139,9 @@ const FillData = (function () {
                             .replace(")", `, 0.6)`);
                         group.data("deSelect", "true");
                         group.css("background-color", backgroundColour);
+                        if (filterList === undefined) {
+                            filterList = [];
+                        }
                         let localFilterList = filterList;
                         localFilterList.push(groupId);
                         setFilterList(localFilterList);
