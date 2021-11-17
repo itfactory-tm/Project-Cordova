@@ -15,11 +15,10 @@ const RemoveItems = (function () {
                         FillData.filterList.filter((item) => item !== id)
                     );
                 } else {
-                    // alert plugin (https://cordova.apache.org/docs/en/10.x/reference/cordova-plugin-dialogs/)
                     const message = "There is still a deadline in this group.";
                     const title = "You cannot delete this group";
                     const button = "Close";
-                    // navigator.notification.alert(message, () => console.log('error'), title, button);
+                    navigator.notification.alert(message, title, button);
                 }
             }
         );

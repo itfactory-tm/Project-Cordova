@@ -15,13 +15,17 @@
   "devDependencies": {
     "cordova-android": "^9.1.0",
     "cordova-browser": "^6.0.0",
-    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-background-mode": "^0.7.3",
+    "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-dialogs": "^2.0.2",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-flashlight": "^3.2.0",
     "cordova-plugin-fullscreen": "^1.3.0",
-    "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-mapbox": "^1.2.3",
+    "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-push": "0.0.1",
+    "cordova-plugin-vibration": "^3.1.1",
     "cordova-plugin-whitelist": "^1.3.5",
     "cordova-windows": "^7.0.1"
   },
@@ -33,7 +37,10 @@
         "ACCESS_TOKEN": "pk.eyJ1IjoibGVubmVydHNvZmZlcnMiLCJhIjoiY2t1d2ptNjVkMDR2MjJ1cXFieXRpazN5eCJ9.VCJzCHE5cyEqO8R2kYjgXQ"
       },
       "cordova-plugin-fullscreen": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-vibration": {},
+      "cordova-plugin-flashlight": {},
+      "cordova-plugin-media": {}
     },
     "platforms": [
       "browser",

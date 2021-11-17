@@ -191,6 +191,9 @@ const FillData = (function () {
                     if (!dateMap[date] === true) {
                         dateMap[date] = false;
                     }
+                    if (filterList === undefined) {
+                        filterList = [];
+                    }
                     if (!filterList.includes(deadline.group.id)) {
                         dateMap[date] = true;
                         $(`div[data-date*=${date}]`).append(
@@ -198,7 +201,7 @@ const FillData = (function () {
                                 <div data-colour="${deadline.group.colour}" class="group"></div>
                                 <div class="content px-2 d-flex flex-column justify-content-center">
 
-                                    <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-row justify-content-between py-1">
                                         <div>
                                             <div class="title">${deadline.title}</div>
                                             <div class="subject">${deadline.description}</div>

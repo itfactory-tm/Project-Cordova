@@ -18,19 +18,19 @@ const NewDeadline = (function () {
                     parameters,
                     function (data) {
                         console.log(`Deadline created: ${data}`);
-                        // let dayBefore = new Date(parameters.date);
-                        // dayBefore.setHours(21);
-                        // dayBefore.setMinutes(0);
-                        // dayBefore.setSeconds(0);
-                        // dayBefore.setMilliseconds(0);
-                        // dayBefore.setDate(dayBefore.getDate() - 1);
-                        // let id = data.id;
-                        // alert(id)
+                        let dayBefore = new Date(parameters.date);
+                        dayBefore.setHours(12);
+                        dayBefore.setMinutes(0);
+                        dayBefore.setSeconds(0);
+                        dayBefore.setMilliseconds(0);
+                        dayBefore.setDate(dayBefore.getDate() - 1);
+                        let id = data;
+                        alert(id);
                         // cordova.plugins.notification.local.schedule({
                         //     id: id,
                         //     title: parameters.title,
                         //     text: parameters.description,
-                        //     trigger: { at: dayBefore }
+                        //     trigger: { at: dayBefore },
                         // });
                         _clearTab();
                     }
