@@ -32,22 +32,22 @@ function onDeviceReady() {
     NewGroup.init();
     NewDeadline.init();
     LoadMaps.init();
-    $("#top-navigation-left").on("click", () => {
-        navigator.vibrate([1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]);
-        const media = new Media(
-            cordova.file.applicationDirectory + "www/assets/sound.mp3"
-        );
-        console.log(media.getDuration());
-        media.setVolume(1.0);
-        media.play();
-        const interval = setInterval(() => {
-            window.plugins.flashlight.toggle();
-        }, 100);
-        setTimeout(() => {
-            clearInterval(interval);
-            window.plugins.flashlight.switchOff();
-        }, 5000);
-    });
+    //     $("#top-navigation-left").on("click", () => {
+    //         navigator.vibrate([1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]);
+    //         const media = new Media(
+    //             cordova.file.applicationDirectory + "www/assets/sound.mp3"
+    //         );
+    //         console.log(media.getDuration());
+    //         media.setVolume(1.0);
+    //         media.play();
+    //         const interval = setInterval(() => {
+    //             window.plugins.flashlight.toggle();
+    //         }, 100);
+    //         setTimeout(() => {
+    //             clearInterval(interval);
+    //             window.plugins.flashlight.switchOff();
+    //         }, 5000);
+    //     });
 }
 
 // TODO

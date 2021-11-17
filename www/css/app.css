@@ -310,3 +310,22 @@ main {
 #socials {
     font-size: 30px;
 }
+
+#voice {
+    background-color: #58a6ff;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: -15px;
+    right: calc(50% - 35px);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#voice i {
+    color: #fff;
+}
