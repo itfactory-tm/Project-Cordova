@@ -25,7 +25,6 @@ const NewDeadline = (function () {
                         dayBefore.setMilliseconds(0);
                         dayBefore.setDate(dayBefore.getDate() - 1);
                         let id = data;
-                        alert(id);
                         // cordova.plugins.notification.local.schedule({
                         //     id: id,
                         //     title: parameters.title,

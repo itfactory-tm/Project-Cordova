@@ -42,16 +42,19 @@ const Navigation = (function () {
             showPartial: true,
         };
         window.plugins.speechRecognition.startListening((data) => {
-            console.log(data);
-
             if (data != null && data != undefined) {
                 for (let i = 0; i < 5; i++) {
                     let array = data[i].split(" ");
+                    console.log(array);
 
-                    // Check if first word is log, show or new
+                    // Check if first word is log, about, show or new
                     if (array[0] == "log" && array[1] == "out") {
                         // Navigate to logout page
                         toPage(5);
+                        return;
+                    } else if (array[0] == "about") {
+                        // Navigate to about page
+                        toPage(2);
                         return;
                     } else if (array[0] == "show") {
                         // Check if second word is groups or deadlines
@@ -66,9 +69,46 @@ const Navigation = (function () {
                         // Check if second word is group or deadline
                         if (array[1] == "group") {
                             toPage(4);
+                            let stringBuilder = "";
+                            for (let i = 2; i < array.length; i++) {
+                                stringBuilder += array[i] + " ";
+                            }
+                            stringBuilder = stringBuilder.trim();
+                            $("#group-name").val(stringBuilder);
+
                             return;
                         } else if (array[1] == "deadline") {
+                            // If the next word is title -> Fill in title of deadline
                             toPage(3);
+                            if (array[2] == "title") {
+                                let index = 3;
+
+                                // Keep appending words to title until the word to add is 'description'
+                                let stringBuilder = "";
+                                while (
+                                    index < array.length &&
+                                    array[index] != "description"
+                                ) {
+                                    stringBuilder += array[index] + " ";
+                                    index++;
+                                }
+                                stringBuilder = stringBuilder.trim();
+                                $("#deadline-title").val(stringBuilder);
+
+                                if (array[index] == "description") {
+                                    stringBuilder = "";
+                                    // Fill in description with following words
+                                    for (
+                                        let i = index + 1;
+                                        i < array.length;
+                                        i++
+                                    ) {
+                                        stringBuilder += array[i] + " ";
+                                    }
+                                    stringBuilder = stringBuilder.trim();
+                                    $("#deadline-subject").val(stringBuilder);
+                                }
+                            }
                             return;
                         }
                     }
