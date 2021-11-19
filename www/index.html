@@ -128,23 +128,6 @@
                 <div id="specify-description" class="error mb-2">Specify a description</div>
                 <input type="text" name="deadline-subject" id="deadline-subject" class="form-control">
             </div>
-            <div>
-                <label for="deadline-date">Date</label>
-                <div id="specify-date" class="error mb-2">Specify a date</div>
-                <input type="date" name="deadline-date" id="deadline-date" class="form-control">
-            </div>
-            <div>
-                <label for="deadline-group">Group</label>
-                <select name="deadline-group" id="deadline-group" class="form-control">
-                </select>
-            </div>
-            <div class="custom-control custom-checkbox mr-sm-2 mt-5 mb-0">
-                <input type="checkbox" class="custom-control-input" id="showDeadlineLocationOption">
-                <label class="custom-control-label" for="showDeadlineLocationOption">Enter Location</label>
-            </div>
-            <div class="mt-2 mb-5">
-                <div class="mt-0" id="newDeadlineMap"></div>
-            </div>
             <div class="pb-4">
                 <div>Preview</div>
                 <div class="box mt-2">
@@ -161,7 +144,50 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-5">
+            <div>
+                <label for="deadline-date">Date</label>
+                <div id="specify-date" class="error mb-2">Specify a date</div>
+                <input type="date" name="deadline-date" id="deadline-date" class="form-control">
+            </div>
+            <div>
+                <label for="deadline-group">Group</label>
+                <select name="deadline-group" id="deadline-group" class="form-control">
+                </select>
+            </div>
+            <div class="custom-control custom-checkbox mr-sm-2 mt-5 mb-0">
+                <input type="checkbox" class="custom-control-input" id="showDeadlineLocationOption">
+                <label class="custom-control-label" for="showDeadlineLocationOption">Enter Location</label>
+            </div>
+            <div class="mt-2 mb-2">
+                <div class="mt-0" id="newDeadlineMap"></div>
+            </div>
+            <div class="custom-control custom-checkbox mr-sm-2 mt-1 mb-3">
+                <input type="checkbox" class="custom-control-input" id="notifyMeOption">
+                <label class="custom-control-label" for="notifyMeOption">Notify me</label>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <select id="notifyTime" class="form-control col-6 notifyTimePicker">
+                    <option value="1">1:00</option>
+                    <option value="2">2:00</option>
+                    <option value="3">3:00</option>
+                    <option value="4">4:00</option>
+                    <option value="5">5:00</option>
+                    <option value="6">6:00</option>
+                    <option value="7">7:00</option>
+                    <option value="8">8:00</option>
+                    <option value="9">9:00</option>
+                    <option value="10">10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                </select>
+                <select id="notifyTimeOfDay" class="form-control col-4 notifyTimePicker">
+                    <option value="am">AM</option>
+                    <option value="pm">PM</option>
+                </select>
+            </div>
+
+
+            <div>
                 <button class="create-deadline-button create group-button">Create</button>
                 <button class="cancel-deadline-button cancel group-button">Cancel</button>
             </div>
@@ -275,6 +301,7 @@
     <script src="js/fillData.js"></script>
     <script src="js/removeItems.js"></script>
     <script src="js/loadMaps.js"></script>
+    <script src="js/backgroundMode.js"></script>
     <script defer src="js/app.js"></script>
 </body>
 
