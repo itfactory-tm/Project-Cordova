@@ -34,15 +34,15 @@
       "cordova-plugin-mapbox": {
         "ACCESS_TOKEN": "pk.eyJ1IjoibGVubmVydHNvZmZlcnMiLCJhIjoiY2t1d2ptNjVkMDR2MjJ1cXFieXRpazN5eCJ9.VCJzCHE5cyEqO8R2kYjgXQ"
       },
-      "cordova-plugin-fullscreen": {},
       "cordova-plugin-background-mode": {},
       "cordova-plugin-speechrecognition": {},
-      "cordova-plugin-tts": {}
+      "cordova-plugin-tts": {},
+      "cordova-plugin-fullscreen": {}
     },
     "platforms": [
       "browser",
-      "android",
-      "windows"
+      "windows",
+      "android"
     ]
   },
   "dependencies": {

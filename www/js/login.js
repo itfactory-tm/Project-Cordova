@@ -4,7 +4,6 @@
 
 const Login = (function () {
     let username;
-    let user;
 
     // This function handles everything around logging in
     const init = function () {
@@ -14,24 +13,28 @@ const Login = (function () {
             localStorage.getItem("loggedInUser") != undefined
         ) {
             // Api call to get all the users in the system
-            $.getJSON("http://lennertsoffers.com/getUsers", function (data) {
-                // Check if the user stored in localstorage is an effective user of the system
-                let exists = false;
-                $.each(data, function (index, value) {
-                    if (
-                        value.username === localStorage.getItem("loggedInUser")
-                    ) {
-                        exists = true;
-                    }
-                });
+            $.getJSON(
+                "http://lennertsoffers.com/plennert/getUsers",
+                function (data) {
+                    // Check if the user stored in localstorage is an effective user of the system
+                    let exists = false;
+                    $.each(data, function (index, value) {
+                        if (
+                            value.username ===
+                            localStorage.getItem("loggedInUser")
+                        ) {
+                            exists = true;
+                        }
+                    });
 
-                // If the user is a valid user, the login page is skipped
-                // The deadline page of the user is shown directly
-                if (exists) {
-                    user = localStorage.getItem("loggedInUser");
-                    Navigation.toPage(0);
+                    // If the user is a valid user, the login page is skipped
+                    // The deadline page of the user is shown directly
+                    if (exists) {
+                        user = localStorage.getItem("loggedInUser");
+                        Navigation.toPage(0);
+                    }
                 }
-            });
+            );
         }
 
         // Eventlistener for submitting a username
@@ -39,7 +42,7 @@ const Login = (function () {
             if (_validateLogin()) {
                 // Api call to get all the users in the system
                 $.getJSON(
-                    "http://lennertsoffers.com/getUsers",
+                    "http://lennertsoffers.com/plennert/getUsers",
                     function (data) {
                         // Check if the user stored in localstorage is an effective user of the system
                         let userExists = false;
@@ -52,7 +55,7 @@ const Login = (function () {
                         // If the user doesn't exist, a new user is created
                         if (!userExists) {
                             $.getJSON(
-                                `http://lennertsoffers.com/newUser?username=${username}`,
+                                `http://lennertsoffers.com/plennert/newUser?username=${username}`,
                                 function (data) {
                                     console.log(`User created: ${data}`);
                                 }

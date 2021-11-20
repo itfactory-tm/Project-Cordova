@@ -72,7 +72,7 @@ const FillData = (function () {
     // Function to append all the groups for this user account to the groups tab
     const _fillGroups = function () {
         // This api call doesn't need parameters
-        $.getJSON("http://lennertsoffers.com/getGroups", function (data) {
+        $.getJSON("http://lennertsoffers.com/plennert/getGroups", function (data) {
             // An array of groups is returned an is now in the variable 'data'
             // We loop trough each group in 'data'
             $.each(data, function (index, value) {
@@ -222,7 +222,7 @@ const FillData = (function () {
     // Function to append all the deadlines for this user account to the deadlines tab
     const _fillAgenda = function () {
         // The api call to get all the deadlines doens't take any arguments
-        $.getJSON("http://lennertsoffers.com/getDeadlines", function (data) {
+        $.getJSON("http://lennertsoffers.com/plennert/getDeadlines", function (data) {
             let dateList = [];
             let dateMap = {};
 

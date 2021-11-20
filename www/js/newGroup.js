@@ -90,7 +90,7 @@ const NewGroup = (function () {
         if (nameSpecified && colourSpecified) {
             // The url is appended with the parameters username, name and colour
             $.getJSON(
-                "http://lennertsoffers.com/newGroup",
+                "http://lennertsoffers.com/plennert/newGroup",
                 parameters,
                 function (data) {
                     // 'data' will contain the id of the newly created group if there was no server error due to an incomplete request url

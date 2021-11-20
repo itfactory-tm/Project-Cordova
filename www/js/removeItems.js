@@ -10,13 +10,13 @@ const RemoveItems = (function () {
         // The restAPI answers with true or false if we do the 'isRemovable' request with an id
         // A group is not removable if there are still users in this group
         $.getJSON(
-            `http://lennertsoffers.com/isRemovable?id=${id}`,
+            `http://lennertsoffers.com/plennert/isRemovable?id=${id}`,
             function (data) {
                 // If the group is removable, the group gets removed
                 if (data) {
                     // This api request removes the group with the specified id
                     $.getJSON(
-                        `http://lennertsoffers.com/removeGroup?id=${id}`,
+                        `http://lennertsoffers.com/plennert/removeGroup?id=${id}`,
                         function (data) {
                             // After removal of a group, the data is changed
                             // We need to fill the data again
@@ -49,7 +49,7 @@ const RemoveItems = (function () {
 
         // A deadline can always be removed so we do the removeDeadline api call with the deadlineId specified
         $.getJSON(
-            `http://lennertsoffers.com/removeDeadline?id=${id}`,
+            `http://lennertsoffers.com/plennert/removeDeadline?id=${id}`,
             function (data) {
                 // After removal of a deadline, the data is changed
                 // We need to fill the data again

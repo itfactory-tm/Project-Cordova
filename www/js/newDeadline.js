@@ -24,7 +24,7 @@ const NewDeadline = (function () {
             if (_checkValues()) {
                 // An api request is send to create the new deadline with the parameters specified
                 $.getJSON(
-                    "http://lennertsoffers.com/newDeadline?",
+                    "http://lennertsoffers.com/plennert/newDeadline?",
                     parameters,
                     function (id) {
                         // The api will return the id of the newly created deadline if there were no errors
@@ -46,6 +46,7 @@ const NewDeadline = (function () {
                                 dayBefore.setHours(hours);
                             }
                             dayBefore.setDate(dayBefore.getDate() - 1);
+                            dayBefore.setMinutes(1);
 
                             // Convert the date to the amount of miliseconds until you should get notified
                             const millisecondsBeforeAlarm =
