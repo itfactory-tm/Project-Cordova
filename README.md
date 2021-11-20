@@ -8,9 +8,9 @@
 
 ![Link to your profile photo](/www/assets/profilePic.png)
 
-## Short description of your app
+## Short description of Plennert
 
-This application is an agenda/deadline planner.
+Plennert is an agenda/deadline planner.
 
 When the user opens this application, he is prompted to login with a username (if he wasn't logged in yet).
 
