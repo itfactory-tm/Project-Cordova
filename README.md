@@ -38,9 +38,22 @@ The main goal for my application is to be useful in the real world. Last year, I
     Used to notify the user when he/she is doing something in the app with irreversible concequences like removing a group or deadline. The user gets an alert when he tries to delete a group in which there are still some deadlines/appointments.
 -   [cordova-plugin-background-mode](https://github.com/katzer/cordova-plugin-background-mode)
     This plugin makes the app run in the background when focus is lost. All code such as timeouts keep running now. I use this to make a notification for the user. There is a timeout set and while the app is running in the background, the timeout is counted down. When it reaches 0, the notification is send. This even works when the phone is in sleep mode.
-    -   [cordova-plugin-compat](https://www.npmjs.com/package/cordova-plugin-compat): To make the background mode plugin backwards compatible with previous version of cordova.
-    -   [cordova-plugin-device](https://www.npmjs.com/package/cordova-plugin-device): Defines a global device object, which describes the device's hardware and software.
+    -   [cordova-plugin-compat](https://www.npmjs.com/package/cordova-plugin-compat)
+        To make the background mode plugin backwards compatible with previous version of cordova.
+    -   [cordova-plugin-device](https://www.npmjs.com/package/cordova-plugin-device)
+        Defines a global device object, which describes the device's hardware and software.
 -   [cordova-plugin-speechrecognition](https://www.npmjs.com/package/cordova-plugin-speechrecognition)
     A plugin that uses your microphone and Google Speech to convert microphone input to an array of text strings. This is used to navigate the user trough the app and to input a title and description for a new deadline.
 -   [cordova-plugin-tts](https://www.npmjs.com/package/cordova-plugin-tts)
     This plugin converts a string to a spoken message. This is the notification the user gets when the deadline is near. It converts the title and description of a deadline to a text message.
+
+## APIs
+
+-   [Fullrest API Spring Boot](https://spring.io/projects/spring-boot):
+    A rest api that manages the CRUD of deadlines, groups and users. It runs on my server at home and is accessible that the url: [http://lennertsoffers.com/plennert](http://lennertsoffers.com/plennert).
+-   [Leaflet.js]https://leafletjs.com):
+    An open source javascript library for mobile-firendly interactive apps. I use leaflet to create an interactive map to show the location of deadlines. A marker is added on the location of the clicked coordinates.
+
+## Localstorage
+
+This is where I store the user that is logged in. In this way, the app is automatically started with the correct user in. Also the group filter is stored here, it is stored across sessions so that the user doesn't need to add the filter every time he starts up the app.
