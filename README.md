@@ -51,7 +51,7 @@ The main goal for my application is to be useful in the real world. Last year, I
 
 -   [Fullrest API Spring Boot](https://spring.io/projects/spring-boot):
     A rest api that manages the CRUD of deadlines, groups and users. It runs on my server at home and is accessible that the url: [http://lennertsoffers.com/plennert](http://lennertsoffers.com/plennert).
--   [Leaflet.js]https://leafletjs.com):
+-   [Leaflet.js](https://leafletjs.com):
     An open source javascript library for mobile-firendly interactive apps. I use leaflet to create an interactive map to show the location of deadlines. A marker is added on the location of the clicked coordinates.
 
 ## Localstorage
