@@ -4,7 +4,7 @@
 -   **Class**: 2APPAI 02
 -   **Email**: <a href="mailto:r0833959@student.thomasmore.be">r0833959@student.thomasmore.be</a>
 -   **Student number**: r0833959
--   **APK download URL**: [http://lennertsoffers.com/app-debug.apk](http://lennertsoffers.com/app-debug.apk) (copy paste link as url)
+-   **APK download URL**: [http://lennertsoffers.com](http://lennertsoffers.com)
 
 ![Link to your profile photo](/www/assets/profilePic.png)
 
